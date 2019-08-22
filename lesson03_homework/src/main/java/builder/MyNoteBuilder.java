@@ -25,7 +25,7 @@ public class MyNoteBuilder {
     }
 
     public MyNote build() {
-        AutoBook.getInstance().add(myNote);
+        AutoBook.getInstance().getBook().add(myNote);
         return myNote;
     }
 }

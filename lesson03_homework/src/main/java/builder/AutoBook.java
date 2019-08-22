@@ -5,18 +5,21 @@ import java.util.List;
 
 public class AutoBook {
 
-    private static List<MyNote> instance;
+    private static AutoBook instance;
+    private List<MyNote> book;
 
-    private AutoBook() {}
+    private AutoBook() {
+        this.book = new ArrayList<MyNote>();
+    }
 
-    public static List<MyNote> getInstance() {
-        List<MyNote> localInstance = instance;
+    public static AutoBook getInstance() {
+        AutoBook localInstance = instance;
 
         if (localInstance == null) {
             synchronized (AutoBook.class) {
                 localInstance = instance;
                 if (localInstance == null) {
-                    instance = localInstance = new ArrayList<MyNote>();
+                    instance = localInstance = new AutoBook();
                 }
             }
         }
@@ -24,8 +27,12 @@ public class AutoBook {
     }
 
     public static void printBook() {
-        for (MyNote n: instance) {
+        for (MyNote n: AutoBook.getInstance().getBook()) {
             System.out.println(n.toString());
         }
+    }
+
+    public List<MyNote> getBook() {
+        return book;
     }
 }
