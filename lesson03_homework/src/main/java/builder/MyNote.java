@@ -21,10 +21,11 @@ public class MyNote {
     @Override
     public String toString() {
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("Дата ").append(date).append("/").append("Пробег ").append(mileage).append("/").append(note);
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("Дата ").append(date).append("/").append("Пробег ").append(mileage).append("/").append(note);
+//        return sb.toString();
 
-        return sb.toString();
+        return "Дата " + date + "/" + "Пробег " + mileage + "/" + note;
     }
 }
 
